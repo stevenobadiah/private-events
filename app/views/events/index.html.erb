@@ -1,0 +1,19 @@
+<% if user_signed_in? %>
+    <%= link_to 'New Event', new_event_path, class: "button is-info is-inverted" %><br />
+<% end %>
+
+<h4>Upcoming Events In Your Area</h4>
+<% @upcoming_events.each do |event| %>
+    <br />
+    <%= event.title %>
+    <%= event.datetime %>
+    <%= link_to "Details", event_path(event) %>
+<% end %><br />
+
+<h4>Previous Events In Your Area</h4>
+<% @previous_events.each do |event| %>
+    <br />
+    <%= event.title %>
+    <%= event.datetime %>
+    <%= link_to "Details", event_path(event) %>
+<% end %>

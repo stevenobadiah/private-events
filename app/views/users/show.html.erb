@@ -1,0 +1,9 @@
+
+<h4>Events This User Is Attending</h4>
+<% @user.events.each do |event| %>
+    <%= link_to event.title, event_path(event) %><br />
+    <%= event.description %><br />
+    <%= event.datetime %><br />
+<% end %>
+
+<%= link_to 'Back', events_path %>

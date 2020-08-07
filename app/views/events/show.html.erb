@@ -1,0 +1,22 @@
+<%= @event.title %><br />
+<p>Organizer:<br>
+  <%= link_to "#{@event.creator.username}", user_path(@event.creator_id) %>
+</p>
+<%= @event.description %><br />
+<%= @event.datetime %><br />
+
+<!--
+<h2>Click to RSVP for this event!</h2><br />
+<form>
+    <%= link_to "RSVP", events_path, :class => 'btn btn-primary'%>
+</form>
+-->
+
+<h3>Currently <%= @event.attendances.count %> people attending: </h3>
+<ul>
+    <% @event.attendances.each do |attendance| %>
+        <li><%= attendance.username %></li>
+    <% end %>
+</ul>
+
+<%= link_to 'Back', events_path %>

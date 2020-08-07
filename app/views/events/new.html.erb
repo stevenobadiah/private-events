@@ -1,0 +1,15 @@
+<h1 class="title">Create a new Event</h1>
+
+<%= form_for(@event, html: {multipart: true}) do |f| %>
+    <ul>
+        <% @event.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+        <% end %>
+    </ul>
+    <%= f.text_field :title, label: "Write an event title", input_html: { class: "textarea" }, wrapper: false, label_html: {class: "label"}, autofocus: true %>
+    <%= f.text_field :description, label: "Write an event description", input_html: { class: "textarea" }, wrapper: false, label_html: {class: "label"} %>
+    <%= f.datetime_field :datetime, label: "Write an event time", input_html: { class: "textarea" }, wrapper: false, label_html: {class: "label"} %>
+    <%= f.button :submit, class: "button is-info" %>
+<% end %>
+
+<%= link_to 'Cancel', events_path, class: "button is-dark" %>
